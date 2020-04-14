@@ -1,0 +1,61 @@
+CREATE TABLE books (
+    book_id     SERIAL PRIMARY KEY,
+    title       TEXT NOT NULL,
+    author      TEXT NOT NULL,
+    genre	TEXT NOT NULL,
+    ISBN        TEXT NOT NULL,
+    year        INTEGER NOT NULL
+);
+
+
+
+
+INSERT INTO books (book_id, title, author, genre,  ISBN, year) 
+VALUES (1, 'A Game of Thrones', 'George R. R. Martin', 'novel', '978-0553593716', 2003),
+       (2, 'A Clash of Kings', 'George R. R. Martin', 'novel', '978-0553593716', 2003),
+       (3, 'A Storm of Swords', 'George R. R. Martin','novel', '034554398X', 2003),
+       (4, 'Harry Potter and the Sorcerer''s Stone', 'fantasy', 'J.K. Rowling', '0439708184', 1999),
+       (5, 'A Dance with Dragons', 'George R. R. Martin', 'fantasy', '0553582011', 2013);
+
+
+
+
+
+CREATE TABLE role(
+  RoleID INTEGER PRIMARY KEY,
+  RoleName TEXT NOT NULL
+);
+
+
+
+INSERT INTO role (roleID,Rolename)
+  VALUES("A","Admin"),
+	("C", "Customer");
+
+
+
+
+CREATE TABLE user(
+  	login_name TEXT PRIMARY KEY,
+  	password TEXT NOT NULL,
+	first_name TEXT not null,
+	last_name TEXT not null,
+	RoleID TEXT not null,
+	FOREIGN KEY (RoleID) 
+      	REFERENCES role (RoleID) 
+);
+
+
+
+
+INSERT INTO user(login_name, password, first_name, last_name, RoleID)
+  VALUES ("admin","123", "Admin", "BookStore" , "A")
+	 ("user" , "123", "Johnes", "Johns", "C")
+
+
+
+
+INSERT INTO users (id, name, username, password)
+VALUES 	(1,'Askar' , 'askar', '123'),
+	(2,'Bob' , 'bob', '123');
+
